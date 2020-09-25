@@ -17,4 +17,3 @@ def evaluate():
     return json.dumps(result);
 
 
-
