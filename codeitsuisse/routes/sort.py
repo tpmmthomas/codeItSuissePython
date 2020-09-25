@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def evaluateSort():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    qsort(data)
+    data.sort()
     logging.info("My result :{}".format(data))
     return jsonify(data);
 
