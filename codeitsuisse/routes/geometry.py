@@ -32,9 +32,9 @@ def evaluateGeo():
         else:
             slope = (yco[(i+1)%len(shape)]-yco[i%len(shape)])/(xco[(i+1)%len(shape)]-xco[i%len(shape)])
             yintercept = yco[i%len(shape)]-slope * xco[i%len(shape)]
-        line_shape.append([slope,yintercept])
+        lineeq_shape.append([slope,yintercept])
         i = i + 1
-    line = data["linecoordinates"]
+    line = data["lineCoordinates"]
     if line[0]["y"] == line[1]["y"] :
         slope = 0
         yintercept = line[0]["y"]
@@ -47,7 +47,7 @@ def evaluateGeo():
     lineeq_line = [slope,yintercept]
     i = 0
     result = []
-    for lineeq in lineq_shape:
+    for lineeq in lineeq_shape:
         if lineeq[0] == 0:
             if lineeq_line[0] == -1 :
                 xintercept =lineeq_line[1]
