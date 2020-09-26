@@ -71,7 +71,7 @@ def evaluateGeo():
                 xintercept = lineeq_line[1]
                 yintercept = lineeq[0]*lineeq_line[1]+lineeq[1]
             elif lineeq_line[0] == 0:
-            xintercept = (lineeq_line[1]-lineeq[1] )/lineeq[0]
+                xintercept = (lineeq_line[1]-lineeq[1] )/lineeq[0]
                 yintercept = lineeq_line[1]
             else:
                 xintercept = (lineeq[1]-lineeq_line[1])/(lineeq_line[0]-lineeq[0])
