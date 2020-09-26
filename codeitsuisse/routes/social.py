@@ -17,11 +17,14 @@ def evaluateSOCIAL():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     cases = data["tests"]
-    ans = """{"answers" :{"""
+    ans = """
+    {
+        "answers":{
+            """
     for x in cases:
         y = calpos(cases[x]["seats"],cases[x]["people"],cases[x]["spaces"])
-        ans = ans + x + ":" + str(y) + ","
-    ans = ans[:-1]
+        ans = ans + "\"" + x + "\":" + str(y) + ",\n"
+    ans = ans[:-2]
     ans = ans + "}}"
     logging.info("My result :{}".format(ans))
     return json.dumps(ans);
