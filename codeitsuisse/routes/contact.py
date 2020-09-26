@@ -32,6 +32,8 @@ def RecurPath(Infected,Clusters,Origin,current_path,result):
         #    current_path.pop(-1)
         AddToResult(current_path,result)
         current_path.pop(-1)
+        if IsNonSi: 
+            current_path[-1] = current_path[-1][:-1]
     for contact in Clusters:
         if contact["name"] in current_path:
             continue
