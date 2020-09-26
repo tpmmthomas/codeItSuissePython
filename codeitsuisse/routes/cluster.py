@@ -26,7 +26,7 @@ def evaluateCluster():
             if data[i][j] == "1" and arr[i][j]=="0":
                 logging.info("i :{}".format(i))
                 logging.info("j :{}".format(j))
-                clusterarr(data,arr,i,j,rows,cols)
+                clusterarr(arr,data,i,j,rows,cols)
                 result = result + 1
     logging.info("My result :{}".format(result))
     return json.dumps({"answer": result});
