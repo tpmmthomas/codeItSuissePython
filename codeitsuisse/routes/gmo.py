@@ -14,6 +14,7 @@ def evaluateFarming():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     for seq in data["list"]:
+        logging.info("In here :  {}".format(seq))
         seq["geneSequence"] = sortdri(seq["geneSequence"])
     logging.info("My result :{}".format(data))
     return jsonify(data);
