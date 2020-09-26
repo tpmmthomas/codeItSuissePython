@@ -78,8 +78,8 @@ def evaluateGeo():
                 yintercept = lineeq_line[0]*xintercept+lineeq_line[1]
         xintercept = round(xintercept,2)
         yintercept = round(yintercept,2)
-        if xintercept >= min(xco[i%len(shape)],xco[(i+1)%len(shape)]) and xintercept <= max(xco[i%len(shape)],xco[(i+1)%len(shape)]):
-            if yintercept >= min(yco[i%len(shape)],yco[(i+1)%len(shape)]) and yintercept <= max(yco[i%len(shape)],yco[(i+1)%len(shape)]):
+        if xintercept >= round(min(xco[i%len(shape)],xco[(i+1)%len(shape)]),2) and xintercept <= round(max(xco[i%len(shape)],xco[(i+1)%len(shape)]),2):
+            if yintercept >= round(min(yco[i%len(shape)],yco[(i+1)%len(shape)]),2) and yintercept <= round(max(yco[i%len(shape)],yco[(i+1)%len(shape)]),2):
                 result.append([xintercept,yintercept])
         i = i + 1
     output_json = []
