@@ -83,7 +83,7 @@ def evaluateGeo():
     output_json = []
     for c in result:
         output_json.append({"x": c[0], "y": c[1]})
-    logging.info("My result :{}".format(putput_json))
+    logging.info("My result :{}".format(output_json))
     return json.dumps(output_json);
 
 
