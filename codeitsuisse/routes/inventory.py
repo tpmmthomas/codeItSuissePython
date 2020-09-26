@@ -16,73 +16,76 @@ logger = logging.getLogger(__name__)
 def evaluateInven():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    searchname = data[0]["searchItemName"]
-    resultlist=[]
-    for item in data[0]["items"]:
-        lcsstr = lcs(searchname.lower(),item.lower(),len(searchname),len(item))
-        changearr = [[] for y in range(len(lcsstr)+1)]
-        ptrlcs = 0
-        ptrbase = 0
-        ptritem = 0
-        while ptrbase < len(searchname):
-            if ptrlcs == len(lcsstr):
-                changestr = "-"+searchname[ptrbase]
-                changearr[ptrlcs].append(changestr)
-                ptrbase = ptrbase+1
-                continue
-            if lcsstr.lower()[ptrlcs] == searchname.lower()[ptrbase]:
-                ptrlcs = ptrlcs+1
-                ptrbase=ptrbase+1
-            else:
-                changestr = "-"+searchname[ptrbase]
-                changearr[ptrlcs].append(changestr)
-                ptrbase=ptrbase+1
-        ptrlcs = 0
-        nummin = len(changearr[0])
-        while ptritem < len(item):
-            if ptrlcs == len(lcsstr):
-                changestr = "+"+item[ptritem]
-                if nummin > 0:
-                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
-                    nummin = nummin - 1
-                else:
+    finalfinalreturn = []
+    for ddt in data:
+        searchname = ddt["searchItemName"]
+        resultlist=[]
+        for item in ddt["items"]:
+            lcsstr = lcs(searchname.lower(),item.lower(),len(searchname),len(item))
+            changearr = [[] for y in range(len(lcsstr)+1)]
+            ptrlcs = 0
+            ptrbase = 0
+            ptritem = 0
+            while ptrbase < len(searchname):
+                if ptrlcs == len(lcsstr):
+                    changestr = "-"+searchname[ptrbase]
                     changearr[ptrlcs].append(changestr)
-                ptritem = ptritem+1
-                continue
-            if lcsstr.lower()[ptrlcs] == item.lower()[ptritem]:
-                ptrlcs = ptrlcs+1
-                nummin = len(changearr[ptrlcs])
-                ptritem = ptritem + 1
-            else:
-                changestr = "+"+item[ptritem]
-                if nummin > 0:
-                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
-                    nummin = nummin - 1
+                    ptrbase = ptrbase+1
+                    continue
+                if lcsstr.lower()[ptrlcs] == searchname.lower()[ptrbase]:
+                    ptrlcs = ptrlcs+1
+                    ptrbase=ptrbase+1
                 else:
+                    changestr = "-"+searchname[ptrbase]
                     changearr[ptrlcs].append(changestr)
-                ptritem=ptritem+1 
-        noop = 0
-        result = ""
-        for i in range(0,len(lcsstr)):
-            for op in changearr[i]:
+                    ptrbase=ptrbase+1
+            ptrlcs = 0
+            nummin = len(changearr[0])
+            while ptritem < len(item):
+                if ptrlcs == len(lcsstr):
+                    changestr = "+"+item[ptritem]
+                    if nummin > 0:
+                        changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
+                        nummin = nummin - 1
+                    else:
+                        changearr[ptrlcs].append(changestr)
+                    ptritem = ptritem+1
+                    continue
+                if lcsstr.lower()[ptrlcs] == item.lower()[ptritem]:
+                    ptrlcs = ptrlcs+1
+                    nummin = len(changearr[ptrlcs])
+                    ptritem = ptritem + 1
+                else:
+                    changestr = "+"+item[ptritem]
+                    if nummin > 0:
+                        changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
+                        nummin = nummin - 1
+                    else:
+                        changearr[ptrlcs].append(changestr)
+                    ptritem=ptritem+1 
+            noop = 0
+            result = ""
+            for i in range(0,len(lcsstr)):
+                for op in changearr[i]:
+                    noop = noop + 1
+                    result = result + op
+                result = result + lcsstr[i]
+            for op in changearr[len(lcsstr)]:
                 noop = noop + 1
                 result = result + op
-            result = result + lcsstr[i]
-        for op in changearr[len(lcsstr)]:
-            noop = noop + 1
-            result = result + op
-        resultlist.append([item,result,noop]) ##
-    finalresult = sorted(resultlist, key=lambda param: (param[2],param[0]))
-    rl = []
-    for r in finalresult:
-        if len(rl)>=10:
-            break
-        rl.append(r[1])
-    returnset = {}
-    returnset["searchItemName"] = searchname
-    returnset["searchResult"] = rl
-    logging.info("My result :{}".format(returnset))
-    return json.dumps([returnset]);
+            resultlist.append([item,result,noop]) ##
+        finalresult = sorted(resultlist, key=lambda param: (param[2],param[0]))
+        rl = []
+        for r in finalresult:
+            if len(rl)>=10:
+                break
+            rl.append(r[1])
+        returnset = {}
+        returnset["searchItemName"] = searchname
+        returnset["searchResult"] = rl
+        finalfinalreturn.append(returnset)
+    logging.info("My result :{}".format(finalfinalreturn))
+    return json.dumps(finalfinalreturn);
 
 
 def lcs(X, Y, m, n): 
