@@ -18,6 +18,8 @@ def evaluateCluster():
     i = 0
     j = 0
     arr = [[0]*cols]*rows
+    logging.info("Rows :{}".format(rows))
+    logging.info("Cols :{}".format(cols))
     result = 0
     while i < rows:
         while j < cols:
