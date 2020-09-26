@@ -16,11 +16,11 @@ logger = logging.getLogger(__name__)
 def evaluateInven():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    searchname = data["searchItemName"]
+    searchname = data[0]["searchItemName"]
     resultlist=[]
     for item in data["items"]:
         lcsstr = lcs(searchname.lower(),item.lower(),len(searchname),len(item))
-        changearr = [[None] for y in range(len(lcsstr+1))]
+        changearr = [[] for y in range(len(lcsstr+1))]
         ptrlcs = 0
         ptrbase = 0
         ptritem = 0
