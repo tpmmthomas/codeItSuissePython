@@ -40,6 +40,6 @@ def evaluateSalad():
     if min_price == -1:
         min_price = 0
     logging.info("My result :{}".format(min_price))
-    return jsonify(min_price);
+    return json.dumps(min_price);
 
 
