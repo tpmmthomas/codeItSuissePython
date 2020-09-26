@@ -8,7 +8,7 @@ from codeitsuisse import app;
 logger = logging.getLogger(__name__)
 
 @app.route('/sort', methods=['POST'])
-def evaluateSort():
+def evaluateSfghrt():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     result = []
