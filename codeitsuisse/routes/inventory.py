@@ -72,8 +72,14 @@ def evaluateInven():
             noop = noop + 1
             result = result + op
         resultlist.append([item,result,noop]) ##
-    logging.info("My result :{}".format(resultlist))
-    return json.dumps(resultlist);
+    finalresult = sorted(resultlist, key=lambda param: (param[2],param[0]))
+    rl = []
+    for r in finalresult:
+        if len(rl)>=10:
+            break
+        rl.append(r[1])
+    logging.info("My result :{}".format(rl))
+    return json.dumps(rl);
 
 
 def lcs(X, Y, m, n): 
