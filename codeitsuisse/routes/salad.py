@@ -37,7 +37,8 @@ def evaluateSalad():
                 if min_price > sumprice:
                     min_price = sumprice
             i = i + 1
-
+    if min_price == -1:
+        min_price = 0
     logging.info("My result :{}".format(min_price))
     return jsonify(min_price);
 
