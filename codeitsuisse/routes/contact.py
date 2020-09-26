@@ -23,7 +23,7 @@ def evaluateContact():
     return json.dumps(result);
 
 def RecurPath(Infected,Clusters,Origin,current_path,result):
-    IsPath, IsNonSi = genomeCompare(Infected["genome"],Origin["gnome"])
+    IsPath, IsNonSi = genomeCompare(Infected["genome"],Origin["genome"])
     if IsPath:
         if IsNonSi: 
             current_path[-1] = current_path[-1] + "*"
@@ -35,7 +35,7 @@ def RecurPath(Infected,Clusters,Origin,current_path,result):
             continue
         if contact+"*" in current_path:
             continue
-        IsPath, IsNonSi =  genomeCompare(Infected["genome"],contact["gnome"])
+        IsPath, IsNonSi =  genomeCompare(Infected["genome"],contact["genome"])
         if IsPath:
             if IsNonSi: 
                 current_path[-1] = current_path[-1] + "*"
