@@ -43,7 +43,7 @@ def evaluateInven():
             if ptrlcs == len(lcsstr):
                 changestr = "+"+item[ptritem]
                 if nummin > 0:
-                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = changestr
+                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = changestr[1:]
                     nummin = nummin - 1
                 else:
                     changearr[ptrlcs].append(changestr)
@@ -78,8 +78,11 @@ def evaluateInven():
         if len(rl)>=10:
             break
         rl.append(r[1])
-    logging.info("My result :{}".format(rl))
-    return json.dumps(rl);
+    returnset = {}
+    returnset["searchItemName"] = searchname
+    returnset["searchResult"] = rl
+    logging.info("My result :{}".format(returnset))
+    return json.dumps([returnset]);
 
 
 def lcs(X, Y, m, n): 
