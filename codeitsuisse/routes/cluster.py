@@ -24,14 +24,14 @@ def evaluateCluster():
     for i in range(0,rows):
         for j in range(0,cols):
             if data[i][j] == "1" and arr[i][j]=="0":
-                logging.info("i :{}".format(i))
-                logging.info("j :{}".format(j))
                 clusterarr(arr,data,i,j,rows,cols)
                 result = result + 1
     logging.info("My result :{}".format(result))
     return json.dumps({"answer": result});
 
 def clusterarr(arr,data,i,j,rows,cols):
+    logging.info("i :{}".format(i))
+    logging.info("j :{}".format(j))
     arr[i][j]="1"
     if i-1>=0 and j-1>=0 and data[i-1][j-1]=="0" and arr[i-1][j-1] == "0":
         clusterarr(arr,data,i-1,j-1,rows,cols)
