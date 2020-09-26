@@ -50,7 +50,7 @@ def clusterarr(arr,data,i,j,rows,cols):
         clusterarr(arr,data,i,j-1,rows,cols)
     if j+1<cols  and data[i][j+1]=="0" and arr[i][j+1] == "0":
         clusterarr(arr,data,i,j+1,rows,cols)
-    if j-1<cols  and data[i][j+1]=="1" and arr[i][j+1] == "0":
+    if j+1<cols  and data[i][j+1]=="1" and arr[i][j+1] == "0":
         clusterarr(arr,data,i,j+1,rows,cols)
     if i+1<rows and j-1>=0 and data[i+1][j-1]=="0" and arr[i+1][j-1] == "0":
         clusterarr(arr,data,i+1,j-1,rows,cols)
