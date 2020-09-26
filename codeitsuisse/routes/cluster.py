@@ -18,8 +18,8 @@ def evaluateCluster():
     i = 0
     j = 0
     arr = [["0"]*cols]*rows
-    logging.info("Rows :{}".format(rows))
-    logging.info("Cols :{}".format(cols))
+    logging.info("Rows :{}".format(arr[1][8]))
+    logging.info("check :{}".format(data[1][8]))
     result = 0
     for i in range(0,rows):
         for j in range(0,cols):
