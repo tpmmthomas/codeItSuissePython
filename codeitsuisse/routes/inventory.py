@@ -16,12 +16,66 @@ logger = logging.getLogger(__name__)
 def evaluateInven():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    cases = data["tests"]
-    ans = {}
-    for x in cases:
-        y = calpos(cases[x]["seats"],cases[x]["people"],cases[x]["spaces"])
-        ans[x] = y
-    jsonans = {"answers": ans}
+    searchname = data["searchItemName"]
+    resultlist=[]
+    for item in data["items"]:
+        lcsstr = lcs(searchname.lower(),item.lower(),len(searchname),len(item))
+        changearr = [[None] for y in range(len(lcsstr+1))]
+        ptrlcs = 0
+        ptrbase = 0
+        ptritem = 0
+        while ptrbase < len(searchname):
+            if ptrlcs == len(lcsstr):
+                changestr = "-"+searchname[ptrbase]
+                changearr[ptrlcs].append(changstr)
+                ptrbase = ptrbase+1
+                continue
+            if lcsstr.lower()[ptrlcs] == searchname.lower()[ptrbase]:
+                ptrlcs = ptrlcs+1
+                ptrbase=ptrbase+1
+            else:
+                changestr = "-"+searchname[ptrbase]
+                changearr[ptrlcs].append(changstr)
+                ptrbase=ptrbase+1
+        ptrlcs = 0
+        nummin = len(changearr[0])
+        while ptritem < len(item):
+            if ptrlcs == len(lcsstr):
+                changestr = "+"+item[ptritem]
+                if nummin > 0:
+                    changearr[ptrlcs][size(changearr[ptrlcs])-nummin] = changestr
+                    nummin = nummin - 1
+                else:
+                    changearr[ptrlcs].append(changestr)
+                ptritem = ptritem+1
+                continue
+            if lcsstr.lower()[ptrlcs] == item.lower()[ptritem]:
+                ptrlcs = ptrlcs+1
+                nummin = len(changearr[ptrlcs])
+                ptritem = ptritem + 1
+            else:
+                changestr = "+"+item[ptritem]
+                if nummin > 0:
+                    changearr[ptrlcs][size(changearr[ptrlcs])-nummin] = changestr
+                    nummin = nummin - 1
+                else:
+                    changearr[ptrlcs].append(changestr)
+                ptritem=ptritem+1 
+        noop = 0
+        result = ""
+        for i in range(0,len(lcsstr)):
+            for op in changearr[i]:
+                noop = noop + 1
+                result = result + op
+            result = result + lcsstr[i]
+        for op in changearr[len(lcsstr)]:
+            noop = noop + 1
+            result = result + op
+        resultlist.append([item,result,noop])
+            
+
+
+       
     logging.info("My result :{}".format(jsonans))
     return json.dumps(jsonans);
 
