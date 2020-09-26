@@ -16,7 +16,7 @@ def evaluateFarming():
     for seq in data["list"]:
         seq["geneSequence"] = sortdri(seq["geneSequence"])
     logging.info("My result :{}".format(data))
-    return json.dumps(data);
+    return jsonify(data);
 
 def sortdri(seq):
     result = ""
