@@ -35,5 +35,5 @@ def ncr(n, r):
 def calpos(seat,ppl,space):
     n = ppl+1
     m = seat-ppl-space*(ppl-1)
-    return ncr(n,m)
+    return ncr(n+m-1,n-1)
 
