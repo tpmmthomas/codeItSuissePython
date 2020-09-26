@@ -43,7 +43,7 @@ def evaluateInven():
             if ptrlcs == len(lcsstr):
                 changestr = "+"+item[ptritem]
                 if nummin > 0:
-                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = changestr[1:]
+                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
                     nummin = nummin - 1
                 else:
                     changearr[ptrlcs].append(changestr)
