@@ -14,12 +14,12 @@ def evaluateFarming():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     for seq in data["list"]:
-        logging.info("In here :  {}".format(seq))
         seq["geneSequence"] = sortdri(seq["geneSequence"])
     logging.info("My result :{}".format(data))
     return jsonify(data);
 
 def sortdri(seq):
+    logging.info("In here :  {}".format(seq))
     result = ""
     a=0
     c=0
@@ -51,19 +51,19 @@ def sortdri(seq):
         c = c - 2
         result = result + "CC"
     while a+c+g+t>0:
-        if a > 1:
+        if a > 0:
             a=a-1
             result = result + "A"
-        if a > 1:
+        if a > 0:
             a=a-1
             result = result + "A"
-        if c > 1:
+        if c > 0:
             c=c-1
             result = result + "C"
-        elif g > 1:
+        elif g > 0:
             g = g-1
             result = result + "G"
-        elif t > 1:
+        elif t > 0:
             t = t-1
             result = result + "T"
     return result
