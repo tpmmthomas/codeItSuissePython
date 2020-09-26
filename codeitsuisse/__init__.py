@@ -9,4 +9,4 @@ import codeitsuisse.routes.fruit
 import codeitsuisse.routes.contact
 import codeitsuisse.routes.cluster
 import codeitsuisse.routes.gmo
-
+import codeitsuisse.routes.social
