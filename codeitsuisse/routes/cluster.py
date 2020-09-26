@@ -17,9 +17,8 @@ def evaluateCluster():
     cols = len(data[0])
     i = 0
     j = 0
-    arr = [["0"]*cols]*rows
-    logging.info("Rows :{}".format(arr[1][7]))
-    logging.info("check :{}".format(data[1][7]))
+    arr = [["0" for i in range(cols)] for j in range(rows)]
+    logging.info("Rows :{}".format(arr))
     result = 0
     for i in range(0,rows):
         for j in range(0,cols):
@@ -31,7 +30,6 @@ def evaluateCluster():
 
 def clusterarr(arr,data,i,j,rows,cols):
     logging.info("i :{}".format(arr))
-    logging.info("i :{}".format(data))
     arr[i][j]="1"
     if i+1<rows  and data[i+1][j]=="0" and arr[i+1][j] == "0":
         clusterarr(arr,data,i+1,j,rows,cols)
