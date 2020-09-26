@@ -33,7 +33,7 @@ def evaluateSalad():
                 elif min_price > sumprice:
                     min_price = sumprice 
             if n > numNeed:
-                sumprice = sumprice - int(shop[i-numNeed])
+                sumprice = sumprice - int(street[i-numNeed])
                 if min_price > sumprice:
                     min_price = sumprice
             i = i + 1
