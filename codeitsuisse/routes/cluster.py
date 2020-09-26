@@ -21,14 +21,11 @@ def evaluateCluster():
     logging.info("Rows :{}".format(rows))
     logging.info("Cols :{}".format(cols))
     result = 0
-    while i < rows:
-         j = 0
-        while j < cols:
+    for i in range(0,rows):
+        for j in range(0,cols):
             if data[i][j] == "1" and arr[i][j]=="0":
                 clusterarr(data,arr,i,j,rows,cols)
                 result = result+1
-            j = j + 1
-        i = i + 1
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
