@@ -72,12 +72,8 @@ def evaluateInven():
             noop = noop + 1
             result = result + op
         resultlist.append([item,result,noop])
-            
-
-
-       
-    logging.info("My result :{}".format(jsonans))
-    return json.dumps(jsonans);
+    logging.info("My result :{}".format(resultlist))
+    return json.dumps(resultlist);
 
 
 def lcs(X, Y, m, n): 
