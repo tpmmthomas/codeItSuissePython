@@ -20,7 +20,7 @@ def evaluateInven():
     resultlist=[]
     for item in data[0]["items"]:
         lcsstr = lcs(searchname.lower(),item.lower(),len(searchname),len(item))
-        changearr = [[] for y in range(len(lcsstr+1))]
+        changearr = [[] for y in range(len(lcsstr)+1)]
         ptrlcs = 0
         ptrbase = 0
         ptritem = 0
