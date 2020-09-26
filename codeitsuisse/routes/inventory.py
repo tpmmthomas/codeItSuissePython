@@ -27,7 +27,7 @@ def evaluateInven():
         while ptrbase < len(searchname):
             if ptrlcs == len(lcsstr):
                 changestr = "-"+searchname[ptrbase]
-                changearr[ptrlcs].append(changstr)
+                changearr[ptrlcs].append(changestr)
                 ptrbase = ptrbase+1
                 continue
             if lcsstr.lower()[ptrlcs] == searchname.lower()[ptrbase]:
@@ -35,7 +35,7 @@ def evaluateInven():
                 ptrbase=ptrbase+1
             else:
                 changestr = "-"+searchname[ptrbase]
-                changearr[ptrlcs].append(changstr)
+                changearr[ptrlcs].append(changestr)
                 ptrbase=ptrbase+1
         ptrlcs = 0
         nummin = len(changearr[0])
