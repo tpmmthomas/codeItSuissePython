@@ -30,11 +30,10 @@ def evaluateCluster():
     return json.dumps({"answer": result});
 
 def clusterarr(arr,data,i,j,rows,cols):
-    logging.info("i :{}".format(i))
-    logging.info("j :{}".format(j))
+    logging.info("i :{}".format(arr))
+    logging.info("i :{}".format(data))
     arr[i][j]="1"
     if i+1<rows  and data[i+1][j]=="0" and arr[i+1][j] == "0":
-        logging.info("jok")
         clusterarr(arr,data,i+1,j,rows,cols)
     if i+1<rows  and data[i+1][j]=="1" and arr[i+1][j] == "0":
         clusterarr(arr,data,i+1,j,rows,cols)
