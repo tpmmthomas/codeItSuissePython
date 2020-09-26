@@ -28,6 +28,8 @@ def RecurPath(Infected,Clusters,Origin,current_path,result):
         if IsNonSi: 
             current_path[-1] = current_path[-1] + "*"
         current_path.append(Origin["name"])
+        if Infected["genome"] = Origin["genome"] and len(current_path) > 2
+            current_path.pop(-1)
         AddToResult(current_path,result)
         current_path.pop(-1)
     for contact in Clusters:
@@ -42,6 +44,8 @@ def RecurPath(Infected,Clusters,Origin,current_path,result):
             current_path.append(contact["name"])
         RecurPath(contact,Clusters,Origin,current_path,result)
         current_path.pop(-1)
+        if IsNonSi: 
+            current_path[-1] = current_path[-1][:-1]
 
 
 
