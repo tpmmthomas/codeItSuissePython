@@ -10,3 +10,5 @@ import codeitsuisse.routes.contact
 import codeitsuisse.routes.cluster
 import codeitsuisse.routes.gmo
 import codeitsuisse.routes.social
+import codeitsuisse.routes.slsm
+import codeitsuisse.routes.inventory
