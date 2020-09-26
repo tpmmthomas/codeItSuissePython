@@ -33,12 +33,7 @@ def ncr(n, r):
     return numer // denom  
 
 def calpos(seat,ppl,space):
-    numspace  = seat-ppl + 1
-    total = ncr(numspace,ppl)
-    i = 1
-    while space > i:
-        numspace = numspace - i + 1
-        for j in range(1,ppl):
-            total = total - ncr(numspace-j,ppl-j)
-        i = i + 1
-    return total
+    n = ppl+1
+    m = seat-ppl-space*(ppl-1)
+    return ncr(n,m)
+
