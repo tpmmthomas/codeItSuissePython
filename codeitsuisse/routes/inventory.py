@@ -71,7 +71,7 @@ def evaluateInven():
         for op in changearr[len(lcsstr)]:
             noop = noop + 1
             result = result + op
-        resultlist.append([item,result,noop])
+        resultlist.append([item,result,noop]) ##
     logging.info("My result :{}".format(resultlist))
     return json.dumps(resultlist);
 
