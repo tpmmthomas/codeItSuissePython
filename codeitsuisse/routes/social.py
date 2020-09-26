@@ -14,8 +14,12 @@ def evaluateSOCIAL():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     cases = data["tests"]
+    ans = []
     for x in cases:
-        logging.info("My result :{}".format(x))
+        y = calpos(cases[x]["seats"],cases[x]["people"],cases[x]["spaces"])
+        ans.append(y)
     logging.info("My result :{}".format(data))
-    return jsonify(data);
+    return jsonify(ans);
 
+def calpos(seat,ppl,space):
+    return 1
