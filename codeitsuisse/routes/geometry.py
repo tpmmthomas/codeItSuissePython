@@ -7,6 +7,7 @@ from codeitsuisse import app;
 
 logger = logging.getLogger(__name__)
 
+
 @app.route('/revisitgeometry', methods=['POST'])
 def evaluateGeo():
     data = request.get_json();
