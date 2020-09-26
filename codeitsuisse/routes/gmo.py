@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 def evaluateFarming():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    for seq in data["list"]:
-        seq["geneSequence"] = sortdri(seq["geneSequence"])
+   # for seq in data["list"]:
+    #    seq["geneSequence"] = sortdri(seq["geneSequence"])
     logging.info("My result :{}".format(data))
     return json.dumps(data);
 
