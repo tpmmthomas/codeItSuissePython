@@ -8,5 +8,5 @@ import codeitsuisse.routes.geometry
 import codeitsuisse.routes.fruit
 import codeitsuisse.routes.contact
 import codeitsuisse.routes.cluster
-
+import codeitsuisse.routes.gmo
 
