@@ -31,9 +31,9 @@ def RecurPath(Infected,Clusters,Origin,current_path,result):
         AddToResult(current_path,result)
         current_path.pop(-1)
     for contact in Clusters:
-        if contact in current_path:
+        if contact["name"] in current_path:
             continue
-        if contact+"*" in current_path:
+        if contact["name"]+"*" in current_path:
             continue
         IsPath, IsNonSi =  genomeCompare(Infected["genome"],contact["genome"])
         if IsPath:
