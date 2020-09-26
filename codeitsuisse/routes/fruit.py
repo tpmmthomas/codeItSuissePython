@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 @app.route('/fruitbasket', methods=['POST'])
-def evaluateGeo():
+def evaluateFruit():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
     result = 0
