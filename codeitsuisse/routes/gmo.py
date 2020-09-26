@@ -33,12 +33,13 @@ def sortdri(seq):
             g = g + 1 
         else:
             t = t + 1
-    while a>0 and c>0 and g>0 and t>0 :
+    times = min(a,c,g,t)
+    for i in range(0,times):
         result = result + "ACGT"
-        a = a - 1 
-        c=c-1
-        g=g-1
-        t=t-1
+    a = a- times
+    c = c - times
+    g = g - times 
+    t = t - times
     if c % 2 == 1 and len(result)>=4 :
         result = result[:-4]
         a=a+1
