@@ -39,7 +39,28 @@ def evaluateInven():
                 ptrbase=ptrbase+1
         ptrlcs = 0
         nummin = len(changearr[0])
-       
+        while ptritem < len(item):
+            if ptrlcs == len(lcsstr):
+                changestr = "+"+item[ptritem]
+                if nummin > 0:
+                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
+                    nummin = nummin - 1
+                else:
+                    changearr[ptrlcs].append(changestr)
+                ptritem = ptritem+1
+                continue
+            if lcsstr.lower()[ptrlcs] == item.lower()[ptritem]:
+                ptrlcs = ptrlcs+1
+                nummin = len(changearr[ptrlcs])
+                ptritem = ptritem + 1
+            else:
+                changestr = "+"+item[ptritem]
+                if nummin > 0:
+                    changearr[ptrlcs][len(changearr[ptrlcs])-nummin] = item[ptritem]
+                    nummin = nummin - 1
+                else:
+                    changearr[ptrlcs].append(changestr)
+                ptritem=ptritem+1 
         noop = 0
         result = ""
         for i in range(0,len(lcsstr)):
