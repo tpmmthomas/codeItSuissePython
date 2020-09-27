@@ -37,9 +37,7 @@ def checkright(floor,pos):
     return True
 
 def clean(floor, pos,steps):
-    logging.info("Floor {}".format(floor))
-    logging.info("Pos {}".format(pos))
-    logging.info("Steps {}".format(steps))
+    
     if steps!=0 or pos != 0 :
         if floor[pos]>0:
             floor[pos] = floor[pos]- 1  
@@ -48,6 +46,11 @@ def clean(floor, pos,steps):
         steps = steps + 1
     left = checkleft(floor,pos)
     right = checkright(floor,pos)
+    logging.info("Floor {}".format(floor))
+    logging.info("Pos {}".format(pos))
+    logging.info("Steps {}".format(steps))
+    logging.info("left {}".format(left))
+    logging.info("left {}".format(right))
     if left and right:
         if floor[pos]== 0:
             return steps
