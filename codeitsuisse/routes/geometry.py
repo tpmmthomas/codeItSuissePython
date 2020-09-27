@@ -76,10 +76,10 @@ def evaluateGeo():
             else:
                 xintercept = (lineeq[1]-lineeq_line[1])/(lineeq_line[0]-lineeq[0])
                 yintercept = lineeq_line[0]*xintercept+lineeq_line[1]
-        xintercept = round(xintercept,2)
-        yintercept = round(yintercept,2)
-        if xintercept >= round(min(xco[i%len(shape)],xco[(i+1)%len(shape)]),2) and xintercept <= round(max(xco[i%len(shape)],xco[(i+1)%len(shape)]),2):
-            if yintercept >= round(min(yco[i%len(shape)],yco[(i+1)%len(shape)]),2) and yintercept <= round(max(yco[i%len(shape)],yco[(i+1)%len(shape)]),2):
+        xintercept = selfround(xintercept,2)
+        yintercept = selfround(yintercept,2)
+        if xintercept >= selfround(min(xco[i%len(shape)],xco[(i+1)%len(shape)]),2) and xintercept <= selfround(max(xco[i%len(shape)],xco[(i+1)%len(shape)]),2):
+            if yintercept >= selfround(min(yco[i%len(shape)],yco[(i+1)%len(shape)]),2) and yintercept <= selfround(max(yco[i%len(shape)],yco[(i+1)%len(shape)]),2):
                 result.append([xintercept,yintercept])
         i = i + 1
     output_json = []
@@ -89,3 +89,8 @@ def evaluateGeo():
     return json.dumps(output_json);
 
 
+
+
+def selfround(num,ddd):
+    choose = 1/10**ddd
+    return float(decimal.Decimal(num).quantize(decimal.Decimal(choose), decimal.ROUND_HALF_UP))
