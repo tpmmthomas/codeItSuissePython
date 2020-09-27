@@ -21,7 +21,7 @@ def evaluateOlym():
     books = data["books"]
     days = data["days"]
     orgbooks = len(books)
-    days.sort(reverse=True)
+    days.sort()
     for day in days:
         if len(books) == 0:
             break
