@@ -12,23 +12,50 @@ from codeitsuisse import app;
 logger = logging.getLogger(__name__)
 
 
-@app.route('/supermarket', methods=['POST'])
+@app.route('/clean_floor', methods=['POST'])
 def evaluateClean():
     data = request.get_json();
     result={}
     logging.info("data sent for evaluation {}".format(data))
-    i =  0
     for case in data["tests"]:
-        maze = data["tests"][case]["maze"]
-        start = data["tests"][case]["start"]
-        end = data["tests"][case]["end"]
-        st=solveMaze(maze,start,end)
-        result[case]= st
-        i = i + 1
+        step = clean(data["tests"][case]["floor"],0,0)
+        result[case] = step
     fr = { "answers": result }
     logging.info("My result :{}".format(fr))
     return json.dumps(fr);
 
-  
+def checkleft(floor,pos): 
+    for i in range (0,pos):
+        if floor[i] > 0
+            return False
+    return True
 
-  
+def checkright(floor,pos): 
+    for i in range (pos+1,len(floor)):
+        if floor[i] > 0
+            return False
+    return True
+
+def clean(floor, pos,steps):
+    if floor[pos]>0:
+        floor[pos] = floor[pos]- 1  
+    else:
+        floor[pos] = 1
+    steps = steps + 1
+    left = checkleft(floor,pos)
+    right = checkright(floor,pos)
+    if left and right:
+        if floor[pos]== 0:
+            return steps
+        else:
+            if pos + 1 < len(floor):
+                return clean(floor,pos+1,steps)
+            else:
+                return clean(floor,pos-1,steps)
+    elif left:
+        return clean(floor,pos+1,steps)
+    elif right:
+        return clean(floor,pos-1,steps)
+    else:
+        return min(clean(floor,pos+1,steps),clean(floor,pos-1,steps))
+            
