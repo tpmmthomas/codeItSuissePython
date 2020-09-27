@@ -29,7 +29,7 @@ def evaluatePort():
             logging.info("OHR {}".format(futvol))
             logging.info("OHR {}".format(NumCon))
         logging.info("OHR {}".format(todt))
-        sorted(todt, key=lambda x: (x[1],x[2],x[3]))
+        todt = sorted(todt, key=lambda x: (x[1],x[2],x[3]))
         logging.info("OHR {}".format(todt))
         out.append({"HedgePositionName": todt[0][0],"OptimalHedgeRatio": todt[0][1],"NumFuturesContract": todt[0][3]}) 
     fr = { "outputs": out }
