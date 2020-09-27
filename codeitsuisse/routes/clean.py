@@ -26,22 +26,23 @@ def evaluateClean():
 
 def checkleft(floor,pos): 
     for i in range (0,pos):
-        if floor[i] > 0
+        if floor[i] > 0:
             return False
     return True
 
 def checkright(floor,pos): 
     for i in range (pos+1,len(floor)):
-        if floor[i] > 0
+        if floor[i] > 0:
             return False
     return True
 
 def clean(floor, pos,steps):
-    if floor[pos]>0:
-        floor[pos] = floor[pos]- 1  
-    else:
-        floor[pos] = 1
-    steps = steps + 1
+    if steps!=0 or pos != 0 :
+        if floor[pos]>0:
+            floor[pos] = floor[pos]- 1  
+        else:
+            floor[pos] = 1
+        steps = steps + 1
     left = checkleft(floor,pos)
     right = checkright(floor,pos)
     if left and right:
