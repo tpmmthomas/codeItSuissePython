@@ -1,6 +1,7 @@
 import logging
 import json
 import random
+import decimal
 import operator as op
 from functools import reduce
 
@@ -40,4 +41,4 @@ def ohrcal(p,os,op):
     return round(p*os/op,3)
 
 def concal(ohr,pv,fp,nvp):
-    return round(ohr*pv/(fp*nvp))
+    return int(decimal.Decimal(ohr*pv/(fp*nvp)).quantize(decimal.Decimal('1'), rounding=decimal.ROUND_HALF_UP))
