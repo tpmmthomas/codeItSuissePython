@@ -13,3 +13,4 @@ import codeitsuisse.routes.social
 import codeitsuisse.routes.slsm
 import codeitsuisse.routes.inventory
 import codeitsuisse.routes.supermarket
+import codeitsuisse.routes.clean
