@@ -94,4 +94,4 @@ def evaluateGeo():
 
 def selfround(num,ddd):
     choose = 1/10**ddd
-    return float(decimal.Decimal(num).quantize(decimal.Decimal(choose), decimal.ROUND_HALF_UP))
+    return float(decimal.Decimal(num).quantize(decimal.Decimal('0.01'), decimal.ROUND_HALF_UP))
