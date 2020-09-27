@@ -38,7 +38,7 @@ def dpPick(books, target):
     n = len(books)
     dp = [[0 for i in range(target+1)] for j in range(n+1)]
     result = [[ [] for i in range(target+1)] for j in range(n+1)]
-    for i in range(0,k+1):
+    for i in range(0,target+1):
         dp[n][i]=i
     i = n-1
     while i >=0:
