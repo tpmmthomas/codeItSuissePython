@@ -44,9 +44,9 @@ def isSafe( maze, x, y, row, col ):
 def stepsdfg(maz,row,col):
     logging.info("My result :{}".format(maze))
     ans = 0
-    for r in maze:
-        for c in r:
-            if r[c]==1:
+    for i in range(0,row):
+        for j in range(0,col):
+            if maze[i][j]==1:
                 ans = ans + 1
     return ans
 
