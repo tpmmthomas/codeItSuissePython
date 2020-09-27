@@ -74,6 +74,8 @@ def solveMazeUtil(maze, x,y,end,row,col,sol):
           
     # Check if maze[x][y] is valid 
     if isSafe(maze, x, y,row,col) == True: 
+        if sol[x][y] == 1:
+            return False
         # mark x, y as part of solution path 
         sol[x][y] = 1
 
