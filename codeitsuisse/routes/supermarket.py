@@ -58,7 +58,7 @@ def solveMaze(maze,start,end ):
         for cc in rr:
             rr[cc] = 1-rr[cc]
     steps = 0
-    if solveMazeUtil(maze, start[1],start[0], end,row,col, sol, steps) == False: 
+    if solveMazeUtil(maze, start[1],start[0], end,row,col, sol) == False: 
         logging.info("Solution doesn't exist"); 
         return -1
       
