@@ -24,6 +24,10 @@ def evaluatePort():
             futvol = future["FuturePrcVol"]
             NumCon = concal(OHR,case["Portfolio"]["Value"],future["IndexFuturePrice"],future["Notional"])
             todt.append([future["Name"],OHR,futvol,NumCon])
+            logging.info("name {}".format(future["Name"]))
+            logging.info("OHR {}".format(OHR))
+            logging.info("OHR {}".format(futvol))
+            logging.info("OHR {}".format(NumCon))
         sorted(todt, key=lambda x: (x[1],x[2],x[3]))
         out.append({"HedgePositionName": todt[0][0],"OptimalHedgeRatio": todt[0][1],"NumFuturesContract": todt[0][3]}) 
     fr = { "outputs": out }
