@@ -38,4 +38,4 @@ def ohrcal(p,os,op):
     return round(p*os/op,3)
 
 def concal(ohr,pv,fp,nvp):
-    return round(ohr*pv/(fp*nvp),0)
+    return round(ohr*pv/(fp*nvp))
