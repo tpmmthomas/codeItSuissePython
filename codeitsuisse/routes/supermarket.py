@@ -45,7 +45,7 @@ def steps(maze):
     ans = 0
     for r in maze:
         for c in r:
-            if maze[r][c]==1:
+            if r[c]==1:
                 ans = ans + 1
     return ans
 
@@ -56,7 +56,7 @@ def solveMaze(maze,start,end ):
     sol = [ [ 0 for j in range(col) ] for i in range(row) ] 
     for rr in maze:
         for cc in rr:
-            maze[rr][cc] = 1-maze[rr][cc]
+            rr[cc] = 1-rr[cc]
     steps = 0
     if solveMazeUtil(maze, start[1],start[0], end,row,col, sol, steps) == False: 
         logging.info("Solution doesn't exist"); 
