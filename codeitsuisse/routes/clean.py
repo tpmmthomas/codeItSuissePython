@@ -64,7 +64,7 @@ def clean(floor, pos,steps):
     elif right:
         return clean(floor,pos-1,steps)
     else:
-        floor1 = floor
-        floor2 = floor
+        floor1 = floor.copy()
+        floor2 = floor.copy()
         return min(clean(floor1,pos+1,steps),clean(floor2,pos-1,steps))
             
