@@ -23,7 +23,7 @@ def evaluatePort():
             OHR = ohrcal(future["CoRelationCoefficient"],case["Portfolio"]["SpotPrcVol"],future["FuturePrcVol"])
             futvol = future["FuturePrcVol"]
             NumCon = concal(OHR,case["Portfolio"]["Value"],future["IndexFuturePrice"],future["Notional"])
-            todt.append([future["Name"],OHR,futvol,Numcon])
+            todt.append([future["Name"],OHR,futvol,NumCon])
         sorted(todt, key=lambda x: (x[1],x[2],x[3]))
         out.append({"HedgePositionName": todt[0][0],"OptimalHedgeRatio": todt[0][1],"NumFuturesContract": todt[0][3]}) 
     fr = { "outputs": out }
