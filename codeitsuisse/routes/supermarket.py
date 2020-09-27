@@ -19,11 +19,12 @@ def evaluateSuper():
     logging.info("data sent for evaluation {}".format(data))
     i =  0
     for case in data["tests"]:
-        maze = case["maze"]
-        start = case["start"]
-        end = case["end"]
+        maze = data["tests"][case]["maze"]
+        start = data["tests"][case]["start"]
+        end = data["tests"][case]["end"]
         st=solveMaze(maze,start,end)
-        result[str(i)]= st
+        result[case]= st
+        i = i + 1
     fr = { "answers": result }
     logging.info("My result :{}".format(fr))
     return json.dumps(fr);
