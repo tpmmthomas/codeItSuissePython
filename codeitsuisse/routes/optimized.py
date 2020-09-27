@@ -33,5 +33,5 @@ def evaluatePort():
 def ohrcal(p,os,op):
     return round(p*os/op,3)
 
-def NumCon(ohr,pv,fp,nvp):
+def concal(ohr,pv,fp,nvp):
     return round(ohr*pv/(fp*nvp),0)
