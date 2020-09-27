@@ -58,6 +58,7 @@ def solveMaze(maze,start,end ):
     for rr in maze:
         for cc in rr:
             rr[cc] = 1-rr[cc]
+    logging.info("maze:{}".format(maze))
     steps = 0
     if solveMazeUtil(maze, start[1],start[0], end,row,col, sol) == False: 
         logging.info("Solution doesn't exist"); 
@@ -67,6 +68,8 @@ def solveMaze(maze,start,end ):
       
 # A recursive utility function to solve Maze problem 
 def solveMazeUtil(maze, x,y,end,row,col,sol): 
+    logging.info("x:{}".format(x))
+    logging.info("y :{}".format(y))
     # if (x, y is goal) return True 
     if x == end[1] and y == end[0] and maze[x][y]== 1: 
         sol[x][y] = 1
