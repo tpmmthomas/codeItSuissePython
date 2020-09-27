@@ -51,7 +51,7 @@ def dpPick(books, target):
             dp[i][j] = max(pick,leave)
             if dp[i][j] == pick:
                 result[i][j] = result[i+1][j+books[i]].copy()
-                result[i][j].append(i)
+                result[i][j].append(books[i])
             else:
                 result[i][j] = result[i+1][j].copy()
             j = j - 1 
