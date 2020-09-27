@@ -41,7 +41,7 @@ def isSafe( maze, x, y, row, col ):
       
     return False
   
-def stepsdfg(maze):
+def stepsdfg(maz,row,col):
     logging.info("My result :{}".format(maze))
     ans = 0
     for r in maze:
@@ -55,16 +55,16 @@ def solveMaze(maze,start,end ):
     row = len(maze)
     col = len(maze[0])
     sol = [ [ 0 for j in range(col) ] for i in range(row) ] 
-    for rr in maze:
-        for cc in rr:
-            rr[cc] = 1-rr[cc]
+    for i in range(0,row):
+        for j in range(0,col):
+            maze[i][j] = 1 - maze[i][j]
     logging.info("maze:{}".format(maze))
     steps = 0
     if solveMazeUtil(maze, start[1],start[0], end,row,col, sol) == False: 
         logging.info("Solution doesn't exist"); 
         return -1
       
-    return stepsdfg(sol)
+    return stepsdfg(sol,row,col)
       
 # A recursive utility function to solve Maze problem 
 def solveMazeUtil(maze, x,y,end,row,col,sol): 
