@@ -86,7 +86,7 @@ def solveMazeUtil(maze, x,y,end,row,col,sol):
             if solveMazeUtil(maze, x - 1, y,end,row,col,sol) == True: 
                 return True    
         # If moving in x direction doesn't give solution  
-        # then Move down in y direction 
+        # then Move down in y direction s
         if ver > 0:
             if solveMazeUtil(maze, x, y + 1,end,row,col, sol) == True: 
                 return True
