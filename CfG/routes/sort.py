@@ -3,7 +3,7 @@ import json
 
 from flask import request, jsonify;
 
-from codeitsuisse import app;
+from CfG import app;
 
 logger = logging.getLogger(__name__)
 
