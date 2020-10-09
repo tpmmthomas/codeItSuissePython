@@ -1,6 +1,6 @@
 import logging
 import socket
-from codeitsuisse import  app
+from CfG import  app
 logger = logging.getLogger(__name__)
 
 @app.route('/', methods=['GET'])
